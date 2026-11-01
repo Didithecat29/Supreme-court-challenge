@@ -1,0 +1,329 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Supreme Court Challenge</title>
+
+<style>
+:root {
+  --navy: #10294b;
+  --blue: #24527e;
+  --gold: #e7bd62;
+  --paper: #fffdf8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px 14px;
+  background: linear-gradient(145deg, #0b1d35, #244b73);
+  font-family: Georgia, serif;
+  color: #17253a;
+}
+
+main {
+  width: min(900px, 100%);
+  background: var(--paper);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 22px 65px #0005;
+}
+
+header {
+  background: var(--navy);
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+header .symbol {
+  font-size: 34px;
+}
+
+h1 {
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  margin: 8px 0;
+}
+
+header p {
+  color: #f0dba9;
+  font: 1rem Arial, sans-serif;
+  margin: 0;
+}
+
+.content {
+  text-align: center;
+  padding: clamp(22px, 5vw, 44px);
+}
+
+.content > p {
+  font: 1.05rem/1.6 Arial, sans-serif;
+  max-width: 600px;
+  margin: 0 auto 22px;
+}
+
+label {
+  display: block;
+  font: bold .9rem Arial, sans-serif;
+  margin: 18px 0 9px;
+}
+
+input {
+  width: 190px;
+  padding: 12px;
+  text-align: center;
+  font: bold 2rem Arial, sans-serif;
+  letter-spacing: .3em;
+  border: 2px solid #9eacbf;
+  border-radius: 9px;
+}
+
+button {
+  display: block;
+  margin: 16px auto 0;
+  border: 0;
+  border-radius: 30px;
+  padding: 13px 28px;
+  background: var(--blue);
+  color: white;
+  font: bold 1rem Arial, sans-serif;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--navy);
+}
+
+#message {
+  min-height: 1.5em;
+  color: #a12f2b;
+  font: .95rem Arial, sans-serif;
+  margin: 14px 0;
+}
+
+#reveal {
+  display: none;
+  margin-top: 26px;
+}
+
+#reveal.show {
+  display: block;
+}
+
+#reveal h2 {
+  color: var(--navy);
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
+}
+
+#reveal p {
+  font: 1rem/1.6 Arial, sans-serif;
+}
+
+figure {
+  margin: 20px 0;
+}
+
+figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 5px solid white;
+  box-shadow: 0 8px 24px #10294b25;
+}
+
+figcaption {
+  font: .82rem/1.5 Arial, sans-serif;
+  color: #596579;
+  margin-top: 10px;
+}
+
+.classroom-question {
+  margin: 22px auto 8px;
+  padding: 18px 20px;
+  max-width: 650px;
+  background: #f4ead2;
+  border-left: 5px solid #c69a42;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.classroom-question h3 {
+  margin: 0 0 8px;
+  color: #10294b;
+  font-size: 1.2rem;
+}
+
+.classroom-question p {
+  margin: 0;
+  font: 1rem/1.6 Arial, sans-serif;
+  color: #17253a;
+}
+
+.secondary {
+  background: transparent;
+  color: var(--blue);
+  border: 1px solid #9eacbf;
+}
+
+footer {
+  text-align: center;
+  color: #667386;
+  font: .8rem Arial, sans-serif;
+  padding: 0 16px 24px;
+}
+</style>
+</head>
+
+<body>
+
+<main>
+
+<header>
+  <div class="symbol">⚖️</div>
+  <h1>The Supreme Court Challenge</h1>
+  <p>A little civics surprise is waiting for you</p>
+</header>
+
+<section class="content">
+
+  <h2>Ready to unlock the Court?</h2>
+
+  <p>
+    Enter your four-digit classroom code to meet
+    the nine members of the United States Supreme Court.
+  </p>
+
+  <form id="code-form">
+
+    <label for="code">YOUR FOUR-DIGIT CODE</label>
+
+    <input
+      id="code"
+      type="password"
+      inputmode="numeric"
+      pattern="[0-9]{4}"
+      minlength="4"
+      maxlength="4"
+      autocomplete="off"
+      placeholder="••••"
+      required
+    >
+
+    <button type="submit">
+      Unlock the picture
+    </button>
+
+  </form>
+
+  <p id="message" role="status" aria-live="polite"></p>
+
+  <section id="reveal">
+
+    <h2>Welcome to the Supreme Court!</h2>
+
+    <p>
+      Meet the nine justices—and get ready to think,
+      ask questions, and do the work of democracy.
+    </p>
+
+    <figure>
+
+      <img
+        src="https://www.supremecourt.gov/about/images/2022_Roberts_Court_Formal_083122_Web.jpg"
+        alt="Official group portrait of the nine United States Supreme Court justices"
+      >
+
+      <figcaption>
+        Official group photograph.
+        Photo credit: Fred Schilling,
+        Collection of the Supreme Court of the United States.
+      </figcaption>
+
+    </figure>
+
+    <div class="classroom-question">
+
+      <h3>Look closely!</h3>
+
+      <p>
+        Tell your teacher: What color is the curtain,
+        and how many pairs of glasses can you see?
+      </p>
+
+    </div>
+
+    <button class="secondary" id="hide" type="button">
+      Hide picture
+    </button>
+
+  </section>
+
+</section>
+
+<footer>
+  Learn about the Court. Think critically.
+  Make your voice heard.
+</footer>
+
+</main>
+
+<script>
+
+// TEACHER SETTING
+// Your classroom access code:
+
+const ACCESS_CODE = "0929";
+
+const form = document.getElementById("code-form");
+const input = document.getElementById("code");
+const message = document.getElementById("message");
+const reveal = document.getElementById("reveal");
+
+form.addEventListener("submit", function(event) {
+
+  event.preventDefault();
+
+  if (input.value === ACCESS_CODE) {
+
+    reveal.classList.add("show");
+    message.textContent = "";
+
+    reveal.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+
+  } else {
+
+    reveal.classList.remove("show");
+
+    message.textContent =
+      "That code didn't work. Please try again.";
+
+    input.select();
+
+  }
+
+});
+
+document.getElementById("hide").addEventListener("click", function() {
+
+  reveal.classList.remove("show");
+  input.value = "";
+  input.focus();
+
+});
+
+</script>
+
+</body>
+</html>
